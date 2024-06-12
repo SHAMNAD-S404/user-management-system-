@@ -1,0 +1,64 @@
+<% include('../layouts/header.ejs') %>
+
+    <!--CSS LINK-->
+
+    <link rel="stylesheet" type="text/css" href="/admin/dashboard.css">
+
+
+    <h1>Dashboard Page</h1>
+
+    <!--search bar -->
+
+    <form action="/admin/search" method="get">
+        <input type="text" name="search" placeholder="Search by name">
+        <button>Search</button>
+    </form>
+
+    <div class="nav">
+        <a href="/admin/new-user">Add new user</a>
+        <a href="/admin/home">Go to Home</a>
+    </div>
+
+
+    <table width="50%">
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Action</th>
+
+        </tr>
+
+
+        <% if(users.length> 0){
+            for(let i=0; i<users.length; i++ ){ %>
+                <tr>
+                    <td>&nbsp;<%= [i+1] %> <br></td>
+                    <td>
+                        <%= users[i].name %> <br>
+                    </td>
+                    <td>
+                        <%= users[i].email %> <br>
+                    </td>
+                    <td>
+                        <%= users[i].mobile %> <br>
+                    </td>
+                    <td>
+                        <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                        &nbsp;&nbsp;
+                        <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a>
+                    </td>
+
+                </tr>
+
+                <% } } else{ %>
+                    <tr>
+                        <td colspan="5">Users not found</td>
+                    </tr>
+                    <% } %>
+    </table>
+
+
+
+    <% include('../layouts/footer.ejs') %>

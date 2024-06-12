@@ -1,0 +1,28 @@
+<%include('../layouts/header.ejs')%>
+
+<link rel="stylesheet" type="text/css" href="/users/login.css">
+
+
+<h1>User Log In</h1>
+
+<% 
+        if(typeof message !=='undefined'){   %>
+        <h4>  <%= message%>  </h4>
+        <% }
+ %>
+
+
+<form action="/login" method="post">
+
+        <input type="email" name="email" placeholder="Enter emailid" required>
+        <br><br>
+        <input type="password" name="password" placeholder="Enter password" required>
+        <br><br>
+        <input type="submit" value="login">
+
+</form>
+
+<a href="/register"><p style="text-align: center;">New user ? Register</p> 
+<a href="/admin"><p style="text-align: center;">Admin Login</p> 
+
+<%include('../layouts/footer.ejs')%>

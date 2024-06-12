@@ -1,0 +1,47 @@
+<%include('../layouts/header.ejs')%>
+
+
+        <link rel="stylesheet" type="text/css" href="/users/home.css">
+
+
+        <h1 style="text-align: center; color: rgb(27, 66, 207);">Welcome , <%= user.name %>
+        </h1>
+        <br><br>
+
+        <table width="50%">
+
+                <tr>
+                        <td>Email:</td>
+                        <td>
+                                <%=user.email%>
+                        </td>
+                </tr>
+                <tr>
+                        <td>Mobile:</td>
+                        <td>
+                                <%=user.mobile%>
+                        </td>
+                </tr>
+                <tr>
+                        <td>Name:</td>
+                        <td>
+                                <%=user.name%>
+                        </td>
+                </tr>
+
+
+        </table>
+        <br><br>
+        <p style="color: green; font-weight: bold;">Updated Suceessfully</p>
+
+        <a href="/edit?id=<%= user._id %>">
+                <p style="text-align: center;"><button>Edit</button></p>
+        </a>
+        <br><br>
+
+        <a href="/logout">
+                <p style="text-align: center;">Logout</p>
+        </a>
+
+
+        <%include('../layouts/footer.ejs')%>

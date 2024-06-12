@@ -1,0 +1,27 @@
+<% include('../layouts/header.ejs') %>
+
+
+  <link rel="stylesheet" type="text/css" href="/admin/login.css">
+
+
+  <h1>Admin Login</h1>
+
+  <% if(typeof message !=='undefined' ) { %>
+    <h3>
+      <%= message %>
+    </h3>
+    <% } %>
+
+
+      <form action="" method="post">
+
+        <input type="email" name="email" placeholder="Enter email">
+        <br><br>
+        <input type="password" name="password" placeholder="Enter password">
+        <br><br>
+        <input type="submit" value="Login">
+
+      </form>
+      <a href="/"><button value="submit">User Login </button></a>
+
+      <% include('../layouts/footer.ejs') %>
