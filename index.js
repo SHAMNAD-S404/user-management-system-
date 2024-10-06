@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/user_management_system");
 const noCache = require('nocache');
 const express = require("express");
 const {dbURI} = require('./config/config')
 const app     = express();
+const dotenv  = require('dotenv')
+dotenv.config()
 
 
 //THIS FOR INTERNAL CSS FILE LINKL
@@ -19,6 +20,7 @@ app.use('/', userRoute);
 const adminRoute = require('./routes/adminRoute');
 app.use('/admin', adminRoute);
 
+mongoose.connect(process.env.MONGODB_CONNECT);
 
 mongoose.connect(dbURI,{
     useNewUrlParser: true,
